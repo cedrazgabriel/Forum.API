@@ -1,7 +1,8 @@
-﻿namespace Forum.Domain.Entities;
+﻿using Forum.Core.Entities;
 
-public class Student(string name, string? id)
+namespace Forum.Domain.Entities;
+
+public class Student(string name) : BaseEntity
 {
-    public string Id = id ?? Guid.NewGuid().ToString();
     public string Name = name;
 }
