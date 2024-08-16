@@ -8,6 +8,9 @@ public class Question(string title, string content, string authorId, Slug slug) 
 {
     public string Title { get; set; } = title;
     public string Content { get; set; } = content;
-    public string AuthorId { get; set; } = authorId;
+    public UniqueEntiyId AuthorId { get; set; } = new UniqueEntiyId(authorId);
+    public UniqueEntiyId? BestAnswerId { get; set; }
     public Slug slug { get; set; } = slug;
+    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    public DateTime? UpdatedAt { get; set; }
 }
