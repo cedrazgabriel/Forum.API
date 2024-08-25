@@ -4,10 +4,20 @@ using Forum.Domain.Entities.ValueObjects;
 
 namespace Forum.Domain.Entities;
 
-public class Question(string title, string content, string authorId, Slug slug) : BaseEntity
+public class Question : BaseEntity<Question>
 {
-    public string Title { get; set; } = title;
-    public string Content { get; set; } = content;
-    public string AuthorId { get; set; } = authorId;
-    public Slug slug { get; set; } = slug;
+    public string Title { get; set; }
+    public string Content { get; set; } 
+    public UniqueEntityId AuthorId { get; set; } 
+    public Slug Slug { get; set; } 
+
+
+    public Question(string title, string content, UniqueEntityId authorId, Slug slug, UniqueEntityId? id = null)
+        : base(default!, id)
+    {
+        Title = title;
+        Content = content;
+        AuthorId = authorId;
+        Slug = slug;
+    }
 }

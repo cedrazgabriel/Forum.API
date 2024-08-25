@@ -1,14 +1,14 @@
 ﻿using Forum.Core.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+namespace Forum.Domain.Entities;
 
-namespace Forum.Domain.Entities
+public class Instructor : BaseEntity<Instructor>
 {
-    public class Instructor(string name) : BaseEntity
+    public string Name { get; set; }
+    public Instructor(string name, UniqueEntityId? id = null)
+    : base(default!, id)
     {
-        public string Name { get; set; } = name;
+        Name = name;
     }
 }
+
+

@@ -6,8 +6,17 @@ using System.Threading.Tasks;
 
 namespace Forum.Core.Entities
 {
-    public class BaseEntity(string? id = null)
+    public abstract class BaseEntity<T>
     {
-        private string _id { get; set; } = id ?? Guid.NewGuid().ToString();
-    } 
+        private readonly UniqueEntityId _id;
+        protected T Props { get; }
+
+        public UniqueEntityId Id => _id;
+
+        protected BaseEntity(T props, UniqueEntityId? id = null)
+        {
+            Props = props;
+            _id = id ?? new UniqueEntityId();
+        }
+    }
 }
