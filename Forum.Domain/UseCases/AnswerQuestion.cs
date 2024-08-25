@@ -3,7 +3,7 @@ using Forum.Domain.Repositories;
 
 namespace Forum.Domain.UseCases;
 
-public class AnswerQuestion(IAnswerRepository answerRepository)
+public class AnswerQuestionUseCase(IAnswerRepository answerRepository)
 {
     public async Task<Answer> execute (string instructorId, string questionId, string content)
     {
