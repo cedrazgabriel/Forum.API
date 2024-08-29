@@ -1,10 +1,16 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace Forum.Domain.Entities.ValueObjects;
 
-public class Slug(string value)
+public class Slug
 {
-    public string Value { get; set; } = value;
+    private Slug(string value)
+    {
+       Value = value;
+    }
+
+    public string Value { get; set; } 
 
     public static Slug createFromText(string text)
     {
@@ -20,5 +26,10 @@ public class Slug(string value)
         normalizedText = Regex.Replace(normalizedText, @"-$", "");
 
         return new Slug(normalizedText);
+    }
+
+    public static Slug Create(string slug)
+    {
+        return new Slug(slug);
     }
 }

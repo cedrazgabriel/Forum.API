@@ -1,4 +1,5 @@
 ﻿using Forum.Core.Entities;
+using Forum.Domain.Entities.ValueObjects;
 using System.Net.WebSockets;
 using System.Runtime.InteropServices;
 
@@ -9,8 +10,7 @@ public class Answer : BaseEntity<Answer>
     public UniqueEntityId AuthorId { get; private set; }
     public UniqueEntityId QuestionId { get; private set; }
     public DateTime CreatedAt { get; private set; }
-    public DateTime? UpdatedAt { get;  set; }
-
+    public DateTime? UpdatedAt { get; set; }
     private Answer(string content, UniqueEntityId authorId, UniqueEntityId questionId, UniqueEntityId? id = null)
         : base(default!, id)
     {
